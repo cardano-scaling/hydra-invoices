@@ -1,15 +1,10 @@
 {
   inputs = {
-    CHaP = {
-      url = "github:IntersectMBO/cardano-haskell-packages?ref=repo";
-      flake = false;
-    };
     flake-parts.url = "github:hercules-ci/flake-parts";
-    haskellNix.url = "github:input-output-hk/haskell.nix";
+    horizon.url = "git+https://gitlab.horizon-haskell.net/package-sets/horizon-cardano";
     hydra-coding-standards.url = "github:cardano-scaling/hydra-coding-standards/0.7.0";
     import-tree.url = "github:vic/import-tree";
-    iohk-nix.url = "github:input-output-hk/iohk-nix";
-    nixpkgs.follows = "haskellNix/nixpkgs";
+    nixpkgs.follows = "horizon/nixpkgs";
   };
 
   outputs = inputs: inputs.flake-parts.lib.mkFlake { inherit inputs; } (inputs.import-tree ./nix);
