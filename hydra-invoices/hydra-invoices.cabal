@@ -1,0 +1,53 @@
+cabal-version:      3.8
+name:               hydra-invoices
+version:            0.1.0.0
+synopsis:           Short description of your package
+description:
+  Please see the README at <url>
+category:           <category>
+author:             <author>
+maintainer:         <email>
+copyright:          <author> 2025
+license:            BSD-3-Clause
+license-file:       LICENSE
+build-type:         Simple
+extra-source-files:
+  ChangeLog.md
+  README.md
+
+source-repository head
+  type:     git
+  location: <url>
+
+common lang
+  build-depends:    base >=4.18 && <5
+  default-language: GHC2021
+  default-extensions:
+    DerivingStrategies
+  ghc-options:
+    -Weverything -Wno-all-missed-specialisations -Wno-implicit-prelude
+    -Wno-missing-safe-haskell-mode -Wno-prepositive-qualified-module
+    -Wno-safe -Wno-unsafe
+
+library
+  import:          lang
+  build-depends:
+    bytestring,
+    cardano-api,
+    crypton,
+    random
+  exposed-modules: Lib
+  hs-source-dirs:  src
+
+executable hydra-invoices
+  import:           lang
+  main-is:          Main.hs
+  hs-source-dirs:   app
+  build-depends:    hydra-invoices
+
+test-suite hydra-invoices-tests
+  import:           lang
+  type:             exitcode-stdio-1.0
+  main-is:          Main.hs
+  hs-source-dirs:   test
+  build-depends:    hydra-invoices
