@@ -2,7 +2,7 @@
   inputs = {
     flake-parts.url = "github:hercules-ci/flake-parts";
     horizon.url = "git+https://gitlab.horizon-haskell.net/package-sets/horizon-cardano";
-    hydra-coding-standards.url = "github:cardano-scaling/hydra-coding-standards/0.7.0";
+    hydra-coding-standards.url = "github:cardano-scaling/hydra-coding-standards/0.7.1";
     import-tree.url = "github:vic/import-tree";
     nixpkgs.follows = "horizon/nixpkgs";
   };
