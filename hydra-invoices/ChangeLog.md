@@ -1,5 +1,9 @@
 # Changelog for hydra-invoices
 
+## 0.0.3.0
+
+* Change hashing algorithm from `SHA256` to `Blake2b_256`.
+
 ## 0.0.2.0
 
 * Use `Value` instead of `TxOutValue` in `StandardInvoice`
