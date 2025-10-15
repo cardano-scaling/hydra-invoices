@@ -1,6 +1,10 @@
 # Changelog for hydra-invoices
 
-## v0.0.1.0
+## 0.0.2.0
+
+* Use `Value` instead of `TxOutValue` in `StandardInvoice`
+
+## 0.0.1.0
 
 * Initial commit of `hydra-invoices`.
 * Add `Invoice` type with parameterisable fields.

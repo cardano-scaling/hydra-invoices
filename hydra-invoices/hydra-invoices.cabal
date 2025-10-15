@@ -1,6 +1,6 @@
 cabal-version:      3.8
 name:               hydra-invoices
-version:            0.0.1.0
+version:            0.0.2.0
 synopsis:           Invoice types and functions for Hydra lightning payments.
 description:        Invoice types and functions for Hydra lightning payments.
 category:           Cardano
