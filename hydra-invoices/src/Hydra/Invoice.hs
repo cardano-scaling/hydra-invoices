@@ -9,7 +9,6 @@ module Hydra.Invoice (
 ) where
 
 import Cardano.Api (Address, ShelleyAddr, Value)
-import Cardano.Binary qualified as CBOR
 import Cardano.Crypto.Hash qualified as Crypto
 import Control.Monad (replicateM)
 import Data.ByteString qualified as BS
@@ -42,7 +41,7 @@ generatePreImage = UnsafePreImage . BS.pack <$> replicateM 32 (randomRIO (0, 255
 
 hashPaymentId :: PreImage -> PaymentId
 hashPaymentId (UnsafePreImage preimage) =
-  UnsafePaymentId $ Crypto.hashWith CBOR.serialize' preimage
+  UnsafePaymentId $ Crypto.hashWith id preimage
 
 generateStandardInvoice :: Address ShelleyAddr -> Value -> UTCTime -> IO (StandardInvoice, PreImage)
 generateStandardInvoice recipient amount date = do

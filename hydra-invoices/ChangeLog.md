@@ -1,5 +1,9 @@
 # Changelog for hydra-invoices
 
+## 0.0.5.0
+
+* Use `hashWith id` instead of `hashWith CBOR.serialise'`.
+
 ## 0.0.4.0
 
 * Add missing `Eq` and `Show` instances to `PaymentId`.
