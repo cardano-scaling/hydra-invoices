@@ -32,6 +32,7 @@ newtype PreImage = UnsafePreImage {fromPreImage :: BS.ByteString}
 
 type PaymentId :: Type
 newtype PaymentId = UnsafePaymentId {fromPaymentId :: Crypto.Hash Crypto.Blake2b_256 BS.ByteString}
+  deriving stock (Show, Eq)
 
 type StandardInvoice :: Type
 type StandardInvoice = Invoice PaymentId (Address ShelleyAddr) Value UTCTime

@@ -1,5 +1,9 @@
 # Changelog for hydra-invoices
 
+## 0.0.4.0
+
+* Add missing `Eq` and `Show` instances to `PaymentId`.
+
 ## 0.0.3.0
 
 * Change hashing algorithm from `SHA256` to `Blake2b_256`.
