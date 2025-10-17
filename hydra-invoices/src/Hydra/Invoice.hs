@@ -8,13 +8,13 @@ module Hydra.Invoice (
   generateStandardInvoice,
 ) where
 
-import Cardano.Api (Address, ShelleyAddr, Value)
-import Cardano.Crypto.Hash qualified as Crypto
-import Control.Monad (replicateM)
-import Data.ByteString qualified as BS
-import Data.Kind (Type)
-import Data.Time (UTCTime)
-import System.Random (randomRIO)
+import "base" Control.Monad (replicateM)
+import "base" Data.Kind (Type)
+import "bytestring" Data.ByteString qualified as BS
+import "cardano-api" Cardano.Api (Address, ShelleyAddr, Value)
+import "cardano-crypto-class" Cardano.Crypto.Hash qualified as Crypto
+import "random" System.Random (randomRIO)
+import "time" Data.Time (UTCTime)
 
 type Invoice :: Type -> Type -> Type -> Type -> Type
 data Invoice paymentIdType addressType amountType datetimeType = MkInvoice
