@@ -1,5 +1,9 @@
 # Changelog for hydra-invoices
 
+## 0.1.0.0
+
+* Derive `Serialise` instances for CBOR generation.
+
 ## 0.0.5.0
 
 * Use `hashWith id` instead of `hashWith CBOR.serialise'`.

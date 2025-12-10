@@ -1,6 +1,6 @@
 cabal-version:      3.8
 name:               hydra-invoices
-version:            0.0.5.0
+version:            0.1.0.0
 synopsis:           Invoice types and functions for Hydra lightning payments.
 description:        Invoice types and functions for Hydra lightning payments.
 category:           Cardano
@@ -34,9 +34,27 @@ library
   build-depends:
     , bytestring
     , cardano-api
+    , cardano-binary
     , cardano-crypto-class
     , random
     , time
 
   exposed-modules: Hydra.Invoice
   hs-source-dirs:  src
+
+test-suite tests
+  import:         lang
+  ghc-options:    -threaded -rtsopts -with-rtsopts=-N
+  hs-source-dirs: test
+  main-is:        Main.hs
+  type:           exitcode-stdio-1.0
+  build-depends:
+    , base
+    , cardano-api
+    , cardano-api:gen
+    , cardano-binary
+    , hedgehog
+    , hydra-invoices
+    , tasty
+    , tasty-hedgehog
+    , time

@@ -12,6 +12,7 @@ import "base" Control.Monad (replicateM)
 import "base" Data.Kind (Type)
 import "bytestring" Data.ByteString qualified as BS
 import "cardano-api" Cardano.Api (Address, ShelleyAddr, Value)
+import "cardano-binary" Cardano.Binary (FromCBOR (fromCBOR), ToCBOR (toCBOR))
 import "cardano-crypto-class" Cardano.Crypto.Hash qualified as Crypto
 import "random" System.Random (randomRIO)
 import "time" Data.Time (UTCTime)
@@ -24,6 +25,12 @@ data Invoice paymentIdType addressType amountType datetimeType = MkInvoice
   , date :: datetimeType
   }
   deriving stock (Eq, Show)
+
+instance (FromCBOR p, FromCBOR a, FromCBOR m, FromCBOR d) => FromCBOR (Invoice p a m d) where
+  fromCBOR = MkInvoice <$> fromCBOR <*> fromCBOR <*> fromCBOR <*> fromCBOR
+
+instance (ToCBOR p, ToCBOR a, ToCBOR m, ToCBOR d) => ToCBOR (Invoice p a m d) where
+  toCBOR (MkInvoice p a m d) = toCBOR p <> toCBOR a <> toCBOR m <> toCBOR d
 
 type PreImage :: Type
 newtype PreImage = UnsafePreImage {fromPreImage :: BS.ByteString}
