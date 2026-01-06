@@ -1,5 +1,9 @@
 # Changelog for hydra-invoices
 
+## 0.1.0.0
+
+* Add bech32 encoding and decoding functions `encodeStandardInvoice` and `decodeStandardInvoice`.
+
 ## 0.0.5.0
 
 * Use `hashWith id` instead of `hashWith CBOR.serialise'`.

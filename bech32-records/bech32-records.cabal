@@ -1,8 +1,12 @@
 cabal-version:      3.8
-name:               hydra-invoices
+name:               bech32-records
 version:            0.1.0.0
-synopsis:           Invoice types and functions for Hydra lightning payments.
-description:        Invoice types and functions for Hydra lightning payments.
+synopsis:
+  Utilities for converting bech32 data to and from records and lists.
+
+description:
+  Utilities for converting bech32 data to and from records and lists.
+
 category:           Cardano
 author:             IOG
 copyright:          IOG 2025
@@ -15,15 +19,12 @@ extra-source-files:
 
 source-repository head
   type:     git
-  location: <url>
+  location: https://github.com/cardano-scaling/bech32
 
 common lang
   build-depends:      base >=4.18 && <5
   default-language:   GHC2021
-  default-extensions:
-    DerivingStrategies
-    PackageImports
-
+  default-extensions: PackageImports
   ghc-options:
     -Weverything -Wno-all-missed-specialisations -Wno-implicit-prelude
     -Wno-missing-safe-haskell-mode -Wno-prepositive-qualified-module
@@ -33,20 +34,10 @@ library
   import:          lang
   build-depends:
     , bech32
-    , bech32-records
-    , bech32-th
-    , bytestring
-    , cardano-api
-    , cardano-crypto-class
-    , cardano-ledger-mary
     , containers
-    , extra
     , parsec
-    , random
-    , text
-    , time
 
-  exposed-modules: Hydra.Invoice
+  exposed-modules: Codec.Binary.Bech32.Records
   hs-source-dirs:  src
 
 test-suite tests
@@ -55,14 +46,12 @@ test-suite tests
   hs-source-dirs: test
   main-is:        Main.hs
   type:           exitcode-stdio-1.0
-  other-modules:  Test.Hydra.InvoiceSpec
+  other-modules:  Test.Codec.Binary.Bech32.RecordsSpec
   build-depends:
     , base
-    , cardano-api
-    , cardano-api:gen
+    , bech32
+    , bech32-records
+    , containers
     , hedgehog
-    , hydra-invoices
     , tasty
     , tasty-hedgehog
-    , text
-    , time
