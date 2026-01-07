@@ -7,18 +7,18 @@ This contains the following projects:
 
 ## Building
 
-```
+``` sh
 nix build
 ````
 
 ## Development
 
-```
+``` sh
 nix develop
 ```
 
 ## Testing
 
-```
-om ci run
+``` sh
+nix run github:juspay/omnix -- ci run
 ```
